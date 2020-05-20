@@ -1,0 +1,39 @@
+import "hashes/sha256/512bitPacked" as sha256packed
+
+/*
+*   c0 - First part of the hash c_k_i (collision key)
+*   c1 - Second part of the collision key
+*   k - lenght of the hash chain
+*   blockNumber - The redactable-blockchain block number
+*/
+
+
+def main(field c0, field k, field blockNumber) -> (field[32][2]):
+
+    field[2] hash_result = [0, 0]
+    field[32][2] h = [hash_result; 32]
+
+    
+    
+
+    //c1 = SHA(c0 || blockNumber) 
+    field[2] tmp = sha256packed([0, 0, blockNumber, c0])
+    
+    h[0] = tmp
+    
+    for field i in 1..5 do
+        field h0 = h[i-1][0]
+        field h1 = h[i-1][1]
+        
+        
+        tmp = sha256packed([0, blockNumber, h0, h1])
+        
+        h[i] = tmp
+
+    endfor
+
+
+   return h
+    
+    
+    

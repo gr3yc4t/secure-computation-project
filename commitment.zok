@@ -1,0 +1,10 @@
+//See:
+// https://crypto.stackexchange.com/questions/40306/pedersen-commitments-and-addition
+// https://github.com/Zokrates/ZoKrates/issues/438
+
+
+def main(field G, field H, private field m, private field r) -> (field):
+
+    field commitment = m*G + r*H
+    
+    return commitment

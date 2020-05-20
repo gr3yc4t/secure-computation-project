@@ -1,0 +1,47 @@
+import "./commitment" as Commitment
+import "hashes/sha256/512bitPacked" as sha256packed
+
+/*
+*   c0 - First part of the hash c_k_i (collision key)
+*   c1 - Second part of the collision key
+*   keyIndex - The i-th key (probably unused)
+*   blockNumber - The redactable-blockchain block number
+*   commitment - the c0 commitment (collision key)
+*   G, H - public parameter of the commitment scheme
+*   
+*   message - committed message (c0)
+*   randomness - randomness of the committed message
+*/
+
+
+def main(field c0, field c1, field keyIndex, field blockNumber, field commitment, field G, field H, private field message, private field randomness) -> (field[2]):
+
+    //Check that the committed message is the same (assertion)
+    commitment = Commitment(G, H, message, randomness)
+    
+    
+    field[2] init_value = [0, 0]
+    field[32][2] h = [init_value; 32]
+    
+    field[2] first_chain_element = sha256packed([0, 0, blockNumber, c0])
+
+    h[0] = first_chain_element
+    
+    for field i in 1..5 do
+        field h0 = h[i-1][0]
+        field h1 = h[i-1][1]
+        
+        
+        tmp = sha256packed([0, blockNumber, h0, h1])
+        
+        h[i] = tmp
+        
+    endfor
+    
+    //return if h[keyIndex][0] == c0 &&  h[keyIndex][1] == c1 then 1 else 0 fi
+    return h[keyIndex]
+
+    
+    
+    
+    

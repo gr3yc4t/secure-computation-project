@@ -1,0 +1,29 @@
+{
+  "inputs": [
+    {
+      "name": "G",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "H",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "m",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "r",
+      "public": false,
+      "type": "field"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "field"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "inputs": [
+    {
+      "name": "c0",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "c1",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "keyIndex",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "blockNumber",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "commitment",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "G",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "H",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "message",
+      "public": false,
+      "type": "field"
+    },
+    {
+      "name": "randomness",
+      "public": false,
+      "type": "field"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "bool"
+    }
+  ]
+}

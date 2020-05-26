@@ -1,0 +1,32 @@
+{
+  "inputs": [
+    {
+      "name": "c0",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "k",
+      "public": true,
+      "type": "field"
+    },
+    {
+      "name": "blockNumber",
+      "public": true,
+      "type": "field"
+    }
+  ],
+  "outputs": [
+    {
+      "type": "array",
+      "components": {
+        "size": 4,
+        "type": "array",
+        "components": {
+          "size": 2,
+          "type": "field"
+        }
+      }
+    }
+  ]
+}
